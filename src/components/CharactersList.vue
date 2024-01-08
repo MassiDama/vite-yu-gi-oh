@@ -20,6 +20,9 @@ export default {
 <template>
     <main>
         <div class="container">
+            <div class="cards-found">
+                Found 39 cards
+            </div>
             <div class="item" v-for="card in store.charactersList" :key="card.id">
                 <SingleCharacter :info="card" />
             </div>
@@ -42,16 +45,29 @@ main {
         padding: 50px;
         background-color: white;
         display: flex;
-        justify-content: space-between;
+        align-items: center;
         flex-wrap: wrap;
-       
+
+       .cards-found {
+        width: 100%;
+        height: 50px;
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+       }
         
        
 
         .item {
-            width: calc(100% / 5);
+            width: calc((100% / 5) - 20px);
             text-align: center;
-           
+            margin-right: 20px;
+            background-color: $primary;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            
         }
         
        

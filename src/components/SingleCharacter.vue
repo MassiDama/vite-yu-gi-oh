@@ -22,9 +22,11 @@ export default {
 <style lang="scss" scoped>
 
 .img-item {
-   
+    width: 100%;
+    
+
     img {
-        width: 200px;
+        width: 100%;
         
     }
 }
