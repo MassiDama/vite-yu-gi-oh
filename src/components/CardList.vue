@@ -14,14 +14,22 @@ export default {
             store,
         }
     },
+    computed: {
+        resultNumber() {
+            return store.cardList.length;
+        },
+    }
 }
 </script>
 
 <template>
     
         <div class="container">
-            <div class="cards-found">
-                Found 39 cards
+            <div v-if="resultNumber > 0" class="cards-found">
+                Found {{ resultNumber }} cards
+            </div>
+            <div v-else class="cards-found">
+                Not results found
             </div>
             <div class="item" v-for="card in store.cardList" :key="card.id">
                 <SingleCard :info="card" />
