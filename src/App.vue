@@ -24,6 +24,11 @@ export default {
   methods: {
     getCard() {
       let myUrl = store.apiUrl;
+      let myfilterUrl = store.filterUrl;
+
+      if (store.apiUrl !== '') {
+          myUrl += `&archetype=${store.searchText}`
+      } 
 
       // chiamata carte 
       axios
@@ -35,6 +40,18 @@ export default {
         .catch((err) => {
           console.log("error", err);
         });
+
+
+      // chiamata archetypes
+      axios
+        .get(myfilterUrl)
+        .then((res => {
+          // console.log(res.data);
+          store.archeType = res.data;
+        }))
+        .catch((err) => {
+          console.log("error", err);
+        })
     }
 
   },
@@ -49,7 +66,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppSearch />
+    <AppSearch @selectType="getCard"/>
     <CardList />
   </main>
   

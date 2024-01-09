@@ -16,7 +16,10 @@ export default {
 <template>
     
     <!-- blocco select (parametro specifico di ricerca) -->
-    <select v-model="store.searchText"></select>
+    <select v-model="store.searchText" @change="$emit('selectType')">
+        <option value="" selected> Select Archetype </option>
+        <option v-for="(archetype, i) in store.archeType" :key="i" :value="archetype.archetype_name" > {{ archetype.archetype_name }}</option>
+    </select>
    
 </template>
 
