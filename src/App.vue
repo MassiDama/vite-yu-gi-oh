@@ -4,7 +4,8 @@ import axios from 'axios'
 
 // importo componenti
 import AppHeader from './components/AppHeader.vue'
-import CharactersList from './components/CharactersList.vue'
+import CardList from './components/CardList.vue'
+import AppSearch from './components/AppSearch.vue'
 
 // importo store
 import { store } from './store'
@@ -12,7 +13,8 @@ import { store } from './store'
 export default {
   components: {
     AppHeader,
-    CharactersList
+    CardList,
+    AppSearch
   },
   data(){
     return{
@@ -20,12 +22,15 @@ export default {
     }
   },
   methods: {
-    getCharacters() {
+    getCard() {
+      let myUrl = store.apiUrl;
+
+      // chiamata carte 
       axios
-        .get(store.apiUrl)
+        .get(myUrl)
         .then((res => {
           //consol.log(res.data.data);
-          store.charactersList = res.data.data;
+          store.cardList = res.data.data;
         }))
         .catch((err) => {
           console.log("error", err);
@@ -34,7 +39,7 @@ export default {
 
   },
   created() {
-    this.getCharacters();
+    this.getCard();
   }
 }
 
@@ -43,11 +48,21 @@ export default {
 
 <template>
   <AppHeader />
-  <CharactersList />
+  <main>
+    <AppSearch />
+    <CardList />
+  </main>
+  
 </template>
 
 <style lang="scss">
 @use './styles/general.scss' as *;
 @use './styles/partials/variables' as *;
+
+main {
+    background-color:  hsl(33.46deg 64.46% 52.55%);
+    width: 100%;
+    padding: 60px 80px 0;
+}
 
 </style>

@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "SIngleCharacter",
+    name: "SingleCard",
     props:{
         info: Object
     }
