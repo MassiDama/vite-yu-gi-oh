@@ -26,7 +26,7 @@ export default {
       let myUrl = store.apiUrl;
       let myfilterUrl = store.filterUrl;
 
-      if (store.apiUrl !== '') {
+      if (store.searchText !== '') {
           myUrl += `&archetype=${store.searchText}`
       } 
 
