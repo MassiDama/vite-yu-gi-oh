@@ -67,8 +67,7 @@ export default {
             background-color: $primary;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            height: 400px;
-            
+            height: 450px;
         }
         
        

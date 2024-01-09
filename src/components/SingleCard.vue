@@ -27,8 +27,13 @@ export default {
 
     img {
         width: 100%;
-        
+        padding-bottom: 10px;
     }
+}
+
+.title-item {
+    padding-bottom: 10px;
+    color: white;
 }
 
 </style>

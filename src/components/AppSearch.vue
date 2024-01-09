@@ -24,6 +24,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+select {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 20px;
+}
 
 </style>
